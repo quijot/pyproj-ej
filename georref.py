@@ -1,15 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# ----------------------------------------------------------------------------
-# "THE BEER-WARE LICENSE" (Revision 42):
-# Santiago Pestarini <santiagonob@gmail.org> escribió este archivo. Siempre
-# que mantengas este aviso, podés hacer lo que quieras con este material. Si
-# algún día nos encontramos, y pensás que este material lo vale, podés
-# invitarme una cerveza en agradecimiento.
-# ----------------------------------------------------------------------------
-
-# REQUISITOS PREVIOS:
-# Python, NumPy, pyProj
 
 import pyproj as pp
 import gms_gdec as gg
