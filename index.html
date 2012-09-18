@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Pyproj-ej by quijot</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Pyproj-ej</h1>
+        <p>pyProj-ej, operaciones con coordenadas geodésicas</p>
+        <p class="view"><a href="https://github.com/quijot/pyproj-ej">View the Project on GitHub <small>quijot/pyproj-ej</small></a></p>
+        <ul>
+          <li><a href="https://github.com/quijot/pyproj-ej/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/quijot/pyproj-ej/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/quijot/pyproj-ej">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>pyProj-ej</h1>
+
+<p><strong>pyProj-ej</strong> utiliza <a href="https://code.google.com/p/pyproj/" title="pyproj: Pyrex generated python interface to PROJ.4 library">pyproj</a> para realizar algunas operaciones con coordenadas geodésicas.</p>
+
+<p><a href="https://code.google.com/p/pyproj/" title="pyproj: Pyrex generated python interface to PROJ.4 library">pyproj</a> es una interfaz <a href="http://www.python.org/" title="Python Programming Language">Python</a> de la librería de proyecciones cartográficas <a href="http://trac.osgeo.org/proj/" title="PROJ.4 - Cartographic Projections Library">PROJ.4</a>.</p>
+
+<h1>Instalación</h1>
+
+<p>Descargar y descomprimir.</p>
+
+<h2>Requisitos previos</h2>
+
+<p>En teoría es multiplataforma, es decir que funciona tanto en win como en GNU/Linux si tenés instalados:
+<a href="http://www.python.org/" title="Python Programming Language">Python</a>, <a href="http://numpy.scipy.org/" title="NumPy is the fundamental package for scientific computing with Python">NumPy</a> y <a href="https://code.google.com/p/pyproj/" title="pyproj: Pyrex generated python interface to PROJ.4 library">pyproj</a>. Recomendado extra: <a href="http://ipython.org/">iPython</a>.</p>
+
+<h1>Uso</h1>
+
+<p>A través del intérprete python (recomendado <a href="http://ipython.org/">iPython</a>).</p>
+
+<h2>Módulo gms_gyf</h2>
+
+<p>Funcionalidad de conversión entre grados sexagesimales (gº m' s.sss") y grados y fracción (g.ggg):</p>
+
+<pre><code>from gms_gyf import *
+gms2gyf(grados, minutos, segundos)
+gyf2gms(grados_y_fraccion)
+</code></pre>
+
+<h3>Ejemplos</h3>
+
+<pre><code>gms2gyf(-61,30) = -61.5
+gms2gyf(0,-45)  = -0.75
+gms2gyf(-33)    = -33.0
+gyf2gms(-61.5)  = (-61,30,0.0)
+gyf2gms(-0.75)  = (0,-45,0.0)
+</code></pre>
+
+<h2>Módulo geod_proy</h2>
+
+<p>Configuración de la proyección (tipo mercator transversal):</p>
+
+<pre><code>import geod_proy as gp
+proy = gp.config_proy(latitud_de_origen, meridiano_central, falso_este, falso_norte, factor_de_escala, datum)
+</code></pre>
+
+<h3>Ejemplo</h3>
+
+<pre><code># Gauss-Krüger Argentina Faja 5
+gk_faja5 = config_proy(-90, -60, 5500000, 0, 1, 'WGS84')
+# o directamente (ya que falso_norte, factor_de_escala y datum toman esos valores por defecto)
+gk_faja5 = config_proy(-90, -60, 5500000)
+</code></pre>
+
+<p>Transformación entre coordenadas proyectadas y geodésicas. Utilizando el intérprete python:</p>
+
+<pre><code>(este, norte) = proy(lon, lat)
+(lon, lat) = proy(este, norte)
+</code></pre>
+
+<p>Transformación masiva, utilizando archivos (ver ejemplos de formato de archivos en directorio
+ <a href="https://github.com/quijot/pyproj-ej/tree/master/coord" title="Set de archivos de ejemplo.">coord</a>):</p>
+
+<pre><code>proy2geod(archivo_coord_proy, proy)
+geod2proy(archivo_coord_geod, proy)
+</code></pre>
+
+<p>Como resultado se obtiene otro archivo con la extensión <em>.geod</em> o <em>.proy</em> y las coordenadas
+ transformadas.</p>
+
+<h3>Set de archivos de ejemplo</h3>
+
+<p>El directorio <a href="https://github.com/quijot/pyproj-ej/tree/master/coord" title="Set de archivos de ejemplo."><strong>coord</strong></a> contiene archivos con coordenadas de un caso real.</p>
+
+<p>Se obtuvieron a través de la serie de transformaciones <em>proy -&gt; geod -&gt; proy</em> para
+ demostrar la reciprocidad. Dentro de los archivos se explica el procedimiento como
+ se obtuvieron.</p>
+
+<h1>Licencia (a.k.a. <em>pagate una birra</em>)</h1>
+
+<p><strong>pyProj-ej</strong> se encuentra bajo los términos de la Beer-ware License (Revision 42).
+Para mayor información leer
+<a href="https://raw.github.com/quijot/pyproj-ej/master/LICENSE">LICENSE</a>.</p>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/quijot">quijot</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
