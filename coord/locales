@@ -15,7 +15,8 @@
 #   Factor escala       1
 #   Falso Norte         0m
 #   Falso Este          0m
-
+#
+#id,este(m),norte(m)
 10,-717.521,-294.259
 11,-710.427,-301.308
 12,-712.458,-303.358

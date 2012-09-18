@@ -40,6 +40,12 @@ def geod2proy(archivo_de_coordenadas, proyeccion, separador=','):
 def geod_proy(coord_file, proj, file_ext, inv, sep=','):
     file_in = open(coord_file, 'r')
     file_out = open(coord_file + file_ext, 'a')
+    # imprimir encabezado
+    if inv:
+      file_out.write('#id, lon (º \' "),\tlat (º \' ")\n')
+    else:
+      file_out.write('#id, E (m),\tN (m)\n')
+    # recorrer archivo, transformar coordenadas y escribir archivo de salida
     for entry in file_in:
       if not entry.startswith('#') and len(entry.strip()) != 0 \
         and entry.find(sep) != -1:
