@@ -1,4 +1,15 @@
-# Proyección Serapio
+# Set de archivos de ejemplo.
+#
+# Para obtenerlos se ejecutó lo siguiente en el intérprete python
+#
+#   from geod_proy import *
+#   lat_orig = gms2gyf(-33,52)
+#   merid_c = gms2gyf(-61,14)
+#   pserapio = config_proy(lat_orig, merid_c)
+#   proy2geod('coord/locales', pserapio)
+#   geod2proy('coord/locales.geod', pserapio)
+#
+# Datos de "Proyección Serapio" utilizada
 #   Latitud Origen      -33 52
 #   Meridiano Central   -61 14
 #   Factor escala       1
