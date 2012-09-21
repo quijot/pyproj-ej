@@ -6,12 +6,16 @@ __pyProj-ej__ utiliza [pyproj][pp] para realizar algunas operaciones con coorden
 
 # Instalación
 
-Descargar y descomprimir.
+[Descargar](https://github.com/quijot/pyproj-ej/zipball/master) y descomprimir.
 
 ## Requisitos previos
 
 En teoría es multiplataforma, es decir que funciona tanto en win como en GNU/Linux si tenés instalados:
 [Python][py], [NumPy][np] y [pyproj][pp]. Recomendado extra: [iPython][ipy].
+
+Para instalarlos en Debian/Ubuntu/Mint/Tuquito/etc.
+
+    $ sudo apt-get install python python-numpy python-pyproj ipython
 
 # Uso
 
