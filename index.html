@@ -18,7 +18,7 @@
     <div class="wrapper">
       <header>
         <h1>pyProj-ej</h1>
-        <p>pyProj-ej, operaciones con coordenadas geodésicas</p>
+        <p>operaciones con coordenadas geodésicas</p>
         <p class="view"><a href="https://github.com/quijot/pyproj-ej">View the Project on GitHub <small>quijot/pyproj-ej</small></a></p>
         <ul>
           <li><a href="https://github.com/quijot/pyproj-ej/zipball/master">Download <strong>ZIP File</strong></a></li>
@@ -35,16 +35,30 @@
 
 <h1>Instalación</h1>
 
-<p>Descargar y descomprimir.</p>
+<p><a href="https://github.com/quijot/pyproj-ej/zipball/master">Descargar</a> y descomprimir.</p>
 
 <h2>Requisitos previos</h2>
 
 <p>En teoría es multiplataforma, es decir que funciona tanto en win como en GNU/Linux si tenés instalados:
 <a href="http://www.python.org/" title="Python Programming Language">Python</a>, <a href="http://numpy.scipy.org/" title="NumPy is the fundamental package for scientific computing with Python">NumPy</a> y <a href="https://code.google.com/p/pyproj/" title="pyproj: Pyrex generated python interface to PROJ.4 library">pyproj</a>. Recomendado extra: <a href="http://ipython.org/">iPython</a>.</p>
 
+<p>Para instalarlos en Debian/Ubuntu/Mint/Tuquito/etc.</p>
+
+<pre><code>$ sudo apt-get install python python-numpy python-pyproj ipython
+</code></pre>
+
 <h1>Uso</h1>
 
-<p>A través del intérprete python (recomendado <a href="http://ipython.org/">iPython</a>).</p>
+<p>A través del intérprete python (recomendado <a href="http://ipython.org/">iPython</a>). Conviene ejecutarlo desde dentro del
+ directorio de pyproj-ej:</p>
+
+<pre><code>$ python
+</code></pre>
+
+<p>o si tenés ipython instaldo:</p>
+
+<pre><code>$ ipython
+</code></pre>
 
 <h2>Módulo gms_gyf</h2>
 
@@ -100,7 +114,7 @@ geod2proy(archivo_coord_geod, proy)
 
 <p>El directorio <a href="https://github.com/quijot/pyproj-ej/tree/master/coord" title="Set de archivos de ejemplo."><strong>coord</strong></a> contiene archivos con coordenadas de un caso real.</p>
 
-<p>Se obtuvieron a través de la serie de transformaciones <em>proy -&gt; geod -&gt; proy</em> para
+<p>Se obtuvieron a través de la serie de transformaciones <em>proy -&gt; geod -&gt; proy -&gt; geod</em> para
  demostrar la reciprocidad. Dentro de los archivos se explica el procedimiento como
  se obtuvieron.</p>
 
