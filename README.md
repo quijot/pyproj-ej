@@ -6,16 +6,27 @@ __pyProj-ej__ utiliza [pyproj][pp] para realizar algunas operaciones con coorden
 
 # Instalación
 
-Descargar y descomprimir.
+[Descargar](https://github.com/quijot/pyproj-ej/zipball/master) y descomprimir.
 
 ## Requisitos previos
 
 En teoría es multiplataforma, es decir que funciona tanto en win como en GNU/Linux si tenés instalados:
 [Python][py], [NumPy][np] y [pyproj][pp]. Recomendado extra: [iPython][ipy].
 
+Para instalarlos en Debian/Ubuntu/Mint/Tuquito/etc.
+
+    $ sudo apt-get install python python-numpy python-pyproj ipython
+
 # Uso
 
-A través del intérprete python (recomendado [iPython][ipy]).
+A través del intérprete python (recomendado [iPython][ipy]). Conviene ejecutarlo desde dentro del
+ directorio de pyproj-ej:
+
+    $ python
+
+o si tenés ipython instaldo:
+
+    $ ipython
 
 ## Módulo gms_gyf
 
@@ -65,7 +76,7 @@ Como resultado se obtiene otro archivo con la extensión _.geod_ o _.proy_ y las
 
 El directorio [__coord__][coord_ej] contiene archivos con coordenadas de un caso real.
 
-Se obtuvieron a través de la serie de transformaciones _proy -> geod -> proy_ para
+Se obtuvieron a través de la serie de transformaciones _proy -> geod -> proy -> geod_ para
  demostrar la reciprocidad. Dentro de los archivos se explica el procedimiento como
  se obtuvieron.
 
