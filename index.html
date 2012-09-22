@@ -29,9 +29,11 @@
       <section>
         <h1>pyProj-ej</h1>
 
-<p><strong>pyProj-ej</strong> utiliza <a href="https://code.google.com/p/pyproj/" title="pyproj: Pyrex generated python interface to PROJ.4 library">pyproj</a> para realizar algunas operaciones con coordenadas geodésicas.</p>
+<p><strong>pyProj-ej</strong> utiliza <a href="https://code.google.com/p/pyproj/" title="pyproj: Pyrex generated python interface to PROJ.4 library">pyproj</a> para realizar algunas operaciones con
+ coordenadas.</p>
 
-<p><a href="https://code.google.com/p/pyproj/" title="pyproj: Pyrex generated python interface to PROJ.4 library">pyproj</a> es una interfaz <a href="http://www.python.org/" title="Python Programming Language">Python</a> de la librería de proyecciones cartográficas <a href="http://trac.osgeo.org/proj/" title="PROJ.4 - Cartographic Projections Library">PROJ.4</a>.</p>
+<p><a href="https://code.google.com/p/pyproj/" title="pyproj: Pyrex generated python interface to PROJ.4 library">pyproj</a> es una interfaz <a href="http://www.python.org/" title="Python Programming Language">Python</a> de la librería de proyecciones
+ cartográficas <a href="http://trac.osgeo.org/proj/" title="PROJ.4 - Cartographic Projections Library">PROJ.4</a>.</p>
 
 <h1>Instalación</h1>
 
@@ -39,8 +41,9 @@
 
 <h2>Requisitos previos</h2>
 
-<p>En teoría es multiplataforma, es decir que funciona tanto en win como en GNU/Linux si tenés instalados:
-<a href="http://www.python.org/" title="Python Programming Language">Python</a>, <a href="http://numpy.scipy.org/" title="NumPy is the fundamental package for scientific computing with Python">NumPy</a> y <a href="https://code.google.com/p/pyproj/" title="pyproj: Pyrex generated python interface to PROJ.4 library">pyproj</a>. Recomendado extra: <a href="http://ipython.org/">iPython</a>.</p>
+<p>En teoría es multiplataforma, es decir que funciona tanto en win como en
+ GNU/Linux si tenés instalados: <a href="http://www.python.org/" title="Python Programming Language">Python</a>, <a href="http://numpy.scipy.org/" title="NumPy is the fundamental package for scientific computing with Python">NumPy</a> y <a href="https://code.google.com/p/pyproj/" title="pyproj: Pyrex generated python interface to PROJ.4 library">pyproj</a>.
+ Recomendado extra: <a href="http://ipython.org/">iPython</a>.</p>
 
 <p>Para instalarlos en Debian/Ubuntu/Mint/Tuquito/etc.</p>
 
@@ -49,8 +52,8 @@
 
 <h1>Uso</h1>
 
-<p>A través del intérprete python (recomendado <a href="http://ipython.org/">iPython</a>). Conviene ejecutarlo desde dentro del
- directorio de pyproj-ej:</p>
+<p>A través del intérprete python (recomendado <a href="http://ipython.org/">iPython</a>). Conviene ejecutarlo
+ desde dentro del directorio de pyproj-ej:</p>
 
 <pre><code>$ python
 </code></pre>
@@ -62,7 +65,8 @@
 
 <h2>Módulo gms_gyf</h2>
 
-<p>Funcionalidad de conversión entre grados sexagesimales (gº m' s.sss") y grados y fracción (g.ggg):</p>
+<p>Funcionalidad de conversión entre grados sexagesimales (gº m' s.sss") y grados
+ y fracción (g.ggg):</p>
 
 <pre><code>from gms_gyf import *
 gms2gyf(grados, minutos, segundos)
@@ -88,35 +92,20 @@ proy = gp.config_proy(latitud_de_origen, meridiano_central, falso_este, falso_no
 
 <h3>Ejemplo</h3>
 
-<pre><code># Gauss-Krüger Argentina Faja 5
-gk_faja5 = config_proy(-90, -60, 5500000, 0, 1, 'WGS84')
-# o directamente (ya que falso_norte, factor_de_escala y datum toman esos valores por defecto)
-gk_faja5 = config_proy(-90, -60, 5500000)
+<p>Leer y ejecutar el archivo de pruebas <strong>test.py</strong>. Allí se detallan los pasos
+ de varios ejemplos. Para ejecutarlo desde el directorio donde se encuentra:</p>
+
+<pre><code>$ ./test.py
 </code></pre>
-
-<p>Transformación entre coordenadas proyectadas y geodésicas. Utilizando el intérprete python:</p>
-
-<pre><code>(este, norte) = proy(lon, lat)
-(lon, lat) = proy(este, norte)
-</code></pre>
-
-<p>Transformación masiva, utilizando archivos (ver ejemplos de formato de archivos en directorio
- <a href="https://github.com/quijot/pyproj-ej/tree/master/coord" title="Set de archivos de ejemplo.">coord</a>):</p>
-
-<pre><code>proy2geod(archivo_coord_proy, proy)
-geod2proy(archivo_coord_geod, proy)
-</code></pre>
-
-<p>Como resultado se obtiene otro archivo con la extensión <em>.geod</em> o <em>.proy</em> y las coordenadas
- transformadas.</p>
 
 <h3>Set de archivos de ejemplo</h3>
 
-<p>El directorio <a href="https://github.com/quijot/pyproj-ej/tree/master/coord" title="Set de archivos de ejemplo."><strong>coord</strong></a> contiene archivos con coordenadas de un caso real.</p>
+<p>El directorio <a href="https://github.com/quijot/pyproj-ej/tree/master/coord" title="Set de archivos de ejemplo."><strong>coord</strong></a> contiene archivos con coordenadas de un caso
+ real.</p>
 
-<p>Se obtuvieron a través de la serie de transformaciones <em>proy -&gt; geod -&gt; proy -&gt; geod</em> para
- demostrar la reciprocidad. Dentro de los archivos se explica el procedimiento como
- se obtuvieron.</p>
+<p>Se obtuvieron a partir del archivo <strong>proy</strong> a través de una serie de
+ transformaciones que demuestran su reciprocidad. Dentro del script <strong>test.py</strong>
+ se explican los pasos realizados.</p>
 
 <h1>Licencia (a.k.a. <em>pagate una birra</em>)</h1>
 
