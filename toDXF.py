@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-def toDXF(xyz, dxf_file, layer='Puntos'):
+def toDXF(ixyz, dxf_file, layer='Puntos', layer_id='Puntos_ID'):
     """
     Toma una lista de coordenadas xyz = [(x1,y1,z1), (x2,y2,z2), ... ] y genera
     un archivo formato DXF con nombre dxf_file con los puntos correspondientes
@@ -9,11 +9,16 @@ def toDXF(xyz, dxf_file, layer='Puntos'):
     """
     pf = open(dxf_file, 'w')
     pf.write('  0\nSECTION\n  2\nENTITIES\n')
-    for p in xyz:
+    for p in ixyz:
         pf.write('  0\nPOINT\n  8\n' + layer + 
-                 '\n 10\n' + str(p[0]) + 
-                 '\n 20\n' + str(p[1]) + 
-                 '\n 30\n' + str(p[2]) + '\n')
+                 '\n 10\n' + str(p[1]) + 
+                 '\n 20\n' + str(p[2]) + 
+                 '\n 30\n' + str(p[3]) +
+                 '\n  0\nMTEXT\n  8\n' + layer_id +
+                 '\n  1\n' + str(p[0]) + 
+                 '\n 10\n' + str(p[1]) + 
+                 '\n 20\n' + str(p[2]) + 
+                 '\n 30\n' + str(p[3]))
     pf.write('  0\nENDSEC\n')
     pf.write('  0\nEOF\n')
     pf.close()
@@ -62,10 +67,6 @@ def coord2dxf(coord_file, dxf_file=''):
     nombre dxf_file con los puntos correspondientes a esas coordenadas en la
     layer (capa) 'Puntos'.
     """
-    # rearma la lista pero sin punto_id
-    # i[1:len(i)] # toma del segundo al último elemento de la lista i
-    # en este caso significa que ignora id y toma x,y,z 
-    l = [i[1:len(i)] for i in coord2list(coord_file)]
     dxf_file = dxf_file if dxf_file != '' else coord_file + '.dxf'
-    toDXF(l, dxf_file)
+    toDXF(coord2list(coord_file), dxf_file)
 
