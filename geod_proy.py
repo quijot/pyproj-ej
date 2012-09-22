@@ -63,7 +63,7 @@ def geod_proy(coord_file, proj, file_ext, inv, sep=','):
       inv (Bool): indica si la transformación va hacia un lado o hacia el otro
                   True: proy -> geod
                   False: geod -> proy
-      sep: separador columnas del archivo de coordenadas (defecto ',')
+      sep: separador columnas del archivo de coordenadas (por defecto: ',')
     """
     # abrir los archivos de entrada y salida
     file_in = open(coord_file, 'r')
@@ -93,6 +93,9 @@ def geod_proy(coord_file, proj, file_ext, inv, sep=','):
               g2, m2, s2 = gyf2gms(coord_out2)
               coord_out1 = str(g1) + ' ' + str(m1) + ' ' + str(s1)
               coord_out2 = str(g2) + ' ' + str(m2) + ' ' + str(s2)
+          else:
+              coord_out1 = round(coord_out1, 3)
+              coord_out2 = round(coord_out2, 3)
           # escribir al archivo de salida las coordenadas transformadas
           file_out.write(str(coord_id) + sep + str(coord_out1) \
             + sep + str(coord_out2) + '\n')

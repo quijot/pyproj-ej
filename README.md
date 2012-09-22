@@ -1,8 +1,10 @@
 # pyProj-ej
 
-__pyProj-ej__ utiliza [pyproj][pp] para realizar algunas operaciones con coordenadas geodésicas.
+__pyProj-ej__ utiliza [pyproj][pp] para realizar algunas operaciones con
+ coordenadas.
 
-[pyproj][pp] es una interfaz [Python][py] de la librería de proyecciones cartográficas [PROJ.4][proj].
+[pyproj][pp] es una interfaz [Python][py] de la librería de proyecciones
+ cartográficas [PROJ.4][proj].
 
 # Instalación
 
@@ -10,8 +12,9 @@ __pyProj-ej__ utiliza [pyproj][pp] para realizar algunas operaciones con coorden
 
 ## Requisitos previos
 
-En teoría es multiplataforma, es decir que funciona tanto en win como en GNU/Linux si tenés instalados:
-[Python][py], [NumPy][np] y [pyproj][pp]. Recomendado extra: [iPython][ipy].
+En teoría es multiplataforma, es decir que funciona tanto en win como en
+ GNU/Linux si tenés instalados: [Python][py], [NumPy][np] y [pyproj][pp].
+ Recomendado extra: [iPython][ipy].
 
 Para instalarlos en Debian/Ubuntu/Mint/Tuquito/etc.
 
@@ -19,8 +22,8 @@ Para instalarlos en Debian/Ubuntu/Mint/Tuquito/etc.
 
 # Uso
 
-A través del intérprete python (recomendado [iPython][ipy]). Conviene ejecutarlo desde dentro del
- directorio de pyproj-ej:
+A través del intérprete python (recomendado [iPython][ipy]). Conviene ejecutarlo
+ desde dentro del directorio de pyproj-ej:
 
     $ python
 
@@ -30,7 +33,8 @@ o si tenés ipython instaldo:
 
 ## Módulo gms_gyf
 
-Funcionalidad de conversión entre grados sexagesimales (gº m' s.sss") y grados y fracción (g.ggg):
+Funcionalidad de conversión entre grados sexagesimales (gº m' s.sss") y grados
+ y fracción (g.ggg):
 
     from gms_gyf import *
     gms2gyf(grados, minutos, segundos)
@@ -53,32 +57,19 @@ Configuración de la proyección (tipo mercator transversal):
 
 ### Ejemplo
 
-    # Gauss-Krüger Argentina Faja 5
-    gk_faja5 = config_proy(-90, -60, 5500000, 0, 1, 'WGS84')
-    # o directamente (ya que falso_norte, factor_de_escala y datum toman esos valores por defecto)
-    gk_faja5 = config_proy(-90, -60, 5500000)
+Leer y ejecutar el archivo de pruebas __test.py__. Allí se detallan los pasos
+ de varios ejemplos. Para ejecutarlo desde el directorio donde se encuentra:
 
-Transformación entre coordenadas proyectadas y geodésicas. Utilizando el intérprete python:
-
-    (este, norte) = proy(lon, lat)
-    (lon, lat) = proy(este, norte)
-
-Transformación masiva, utilizando archivos (ver ejemplos de formato de archivos en directorio
- [coord][coord_ej]):
-
-    proy2geod(archivo_coord_proy, proy)
-    geod2proy(archivo_coord_geod, proy)
-
-Como resultado se obtiene otro archivo con la extensión _.geod_ o _.proy_ y las coordenadas
- transformadas.
+    $ ./test.py
 
 ### Set de archivos de ejemplo
 
-El directorio [__coord__][coord_ej] contiene archivos con coordenadas de un caso real.
+El directorio [__coord__][coord_ej] contiene archivos con coordenadas de un caso
+ real.
 
-Se obtuvieron a través de la serie de transformaciones _proy -> geod -> proy -> geod_ para
- demostrar la reciprocidad. Dentro de los archivos se explica el procedimiento como
- se obtuvieron.
+Se obtuvieron a partir del archivo __proy__ a través de una serie de
+ transformaciones que demuestran su reciprocidad. Dentro del script __test.py__
+ se explican los pasos realizados.
 
 # Licencia (a.k.a. _pagate una birra_)
 

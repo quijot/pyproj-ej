@@ -45,9 +45,11 @@ proy2geod('coord/proy.geod.proy', pserapio)
 # proy.geod -> proy.geod.gk5
 geod2proy('coord/proy.geod', gk_faja5, 'gk5')
 # proy.geod.gk5 -> proy.geod.gk5.geod
-proy2geod('coord/proy.geod.gk5', gk_faja5,)
+proy2geod('coord/proy.geod.gk5', gk_faja5)
 # proy.geod.gk5.geod -> proy.geod.gk5.geod.gk5
 geod2proy('coord/proy.geod.gk5.geod', gk_faja5, 'gk5')
+# proy.geod.gk5.geod.gk5 -> proy.geod.gk5.geod.gk5.geod
+proy2geod('coord/proy.geod.gk5.geod.gk5', gk_faja5)
 
 
 #
