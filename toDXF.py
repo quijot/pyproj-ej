@@ -14,11 +14,12 @@ def toDXF(ixyz, dxf_file, layer='Puntos', layer_id='Puntos_ID'):
                  '\n 10\n' + str(p[1]) + 
                  '\n 20\n' + str(p[2]) + 
                  '\n 30\n' + str(p[3]) +
-                 '\n  0\nMTEXT\n  8\n' + layer_id +
+                 '\n  0\nTEXT\n  8\n' + layer_id +
                  '\n  1\n' + str(p[0]) + 
                  '\n 10\n' + str(p[1]) + 
                  '\n 20\n' + str(p[2]) + 
-                 '\n 30\n' + str(p[3]) + '\n')
+                 '\n 30\n' + str(p[3]) +
+                 '\n 40\n10\n')
     pf.write('  0\nENDSEC\n')
     pf.write('  0\nEOF\n')
     pf.close()
