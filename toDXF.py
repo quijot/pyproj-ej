@@ -18,7 +18,7 @@ def toDXF(ixyz, dxf_file, layer='Puntos', layer_id='Puntos_ID'):
                  '\n  1\n' + str(p[0]) + 
                  '\n 10\n' + str(p[1]) + 
                  '\n 20\n' + str(p[2]) + 
-                 '\n 30\n' + str(p[3]))
+                 '\n 30\n' + str(p[3]) + '\n')
     pf.write('  0\nENDSEC\n')
     pf.write('  0\nEOF\n')
     pf.close()
